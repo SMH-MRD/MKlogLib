@@ -7,7 +7,8 @@ namespace MKlog
 {
 #define LOG_RECORD_MAX		8	//LOG記録数最大値
 #define LOG_ITEM_MAX		128 //LOGに記録するITEM数最大値
-#define TIMER_ID_BASE		300 //LOGに記録するITEM数最大値
+#define LABEL_LEN_MAX		24 //LOGに記録するITEMラベル文字最大数
+#define TIMER_ID_BASE		300 //TIMER ID指定値
 
 #define LOG_STATUS_STANDBY	0 //LOG記録の状態
 #define LOG_STATUS_ACTIVE	1 //LOG記録の状態
@@ -24,6 +25,7 @@ namespace MKlog
 		HANDLE	hf;
 		WCHAR	szType[128];				//BASIC:定周期で記録し続ける　TRAP:定周期で指定数サンプリング　EVENT：イベントトリガで記録
 		WCHAR	fname[256];					//ファイル名
+		WCHAR	labes[LOG_ITEM_MAX][LABEL_LEN_MAX];//ラベルテキスト
 		std::wstring filename;
 		int		ms_period;					//サンプリング周期　msec NEGATIVE VALUE:イベント型
 		int		n_item;						//サンプリングデータ項目数
