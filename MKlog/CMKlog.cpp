@@ -112,6 +112,7 @@ namespace MKlog
 	
 		return 0;
 	};
+
 	//########################################################################
 	VOID CALLBACK CMKlog::MKlogTimerProc(HWND hWnd, UINT msg, UINT idEvent, DWORD dwTime)
 	{
@@ -130,6 +131,7 @@ namespace MKlog
 		else;
 		return;
 	};
+
 	//########################################################################
 	int CMKlog::set_label(int logID) {
 		wstring wstr; wstr.clear();
@@ -184,6 +186,7 @@ namespace MKlog
 		if(mklogset[logID].hf!=NULL) CloseHandle(mklogset[logID].hf);
 		return 0;
 	};
+
 	//########################################################################
 	int CMKlog::pause_record(int logID) {
 		if ((logID > nlogs) || (logID < 0))return -1;
@@ -192,7 +195,40 @@ namespace MKlog
 	};
 	//########################################################################
 	int CMKlog::add_record(int logID) {
-		
+
+		SYSTEMTIME stTime;
+		static TCHAR strTime;
+
+		wstring wstr; wstr.clear();
+		wstringstream ws;
+		DWORD written;
+
+		GetLocalTime(&stTime);
+
+		ws << stTime.wHour << L":"<< stTime.wMinute << L":" << stTime.wSecond << L"." << stTime.wMilliseconds;
+
+		int i_double=0, i_int=0, i_bool=0;
+		for (int i = 0; i < mklogset[logID].n_item; i++) {
+			ws << L",";
+			switch (mklogset[logID].data_type[i]) {
+			case MK_DATA_TYPE_DOUBLE:
+				ws << *mklogset[logID].p_double[i_double];
+				i_double++;
+				break;
+			case MK_DATA_TYPE_INT:
+				ws << *mklogset[logID].p_int[i_double];
+				i_int++;
+				break;
+			case MK_DATA_TYPE_BOOL:
+				ws << *mklogset[logID].p_bool[i_double];
+				i_bool++;
+				break;
+
+			}
+		}
+		wstr += ws.str();
+		wstr += L"\r\n";
+		WriteFile(mklogset[logID].hf, wstr.c_str(), wstr.length() * 2, &written, NULL);
 		return 0;
 	};
 
