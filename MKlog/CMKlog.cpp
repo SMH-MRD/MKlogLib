@@ -56,10 +56,20 @@ namespace MKlog
 				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE01_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[0] = stoi(buf_t);
 				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE02_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[1] = stoi(buf_t);
 				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE03_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[2] = stoi(buf_t);
+				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE04_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[3] = stoi(buf_t);
+				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE05_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[4] = stoi(buf_t);
+				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE06_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[5] = stoi(buf_t);
+				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE07_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[6] = stoi(buf_t);
+				str_num = GetPrivateProfileString(DATA_TYPE1_SECT_OF_INIFILE, TYPE08_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_1].data_type[7] = stoi(buf_t);
 
 				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL01_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[0], LABEL_LEN_MAX, szInipath); 
 				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL02_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[1], LABEL_LEN_MAX, szInipath);
 				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL03_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[2], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL04_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[3], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL05_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[4], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL06_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[5], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL07_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[6], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME1_SECT_OF_INIFILE, LABEL08_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[7], LABEL_LEN_MAX, szInipath);
 
 			}
 			//LOG02
@@ -93,9 +103,9 @@ namespace MKlog
 				str_num = GetPrivateProfileString(DATA_TYPE3_SECT_OF_INIFILE, TYPE02_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_3].data_type[1] = stoi(buf_t);
 				str_num = GetPrivateProfileString(DATA_TYPE3_SECT_OF_INIFILE, TYPE03_KEY_OF_INIFILE, L"FAILED", buf_t, sizeof(buf_t), szInipath); if (str_num < 5)mklogset[MK_LOGSET_3].data_type[2] = stoi(buf_t);
 
-				str_num = GetPrivateProfileString(LABEL_NAME3_SECT_OF_INIFILE, LABEL01_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[0], LABEL_LEN_MAX, szInipath);
-				str_num = GetPrivateProfileString(LABEL_NAME3_SECT_OF_INIFILE, LABEL02_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[1], LABEL_LEN_MAX, szInipath);
-				str_num = GetPrivateProfileString(LABEL_NAME3_SECT_OF_INIFILE, LABEL03_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_1].labes[2], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME3_SECT_OF_INIFILE, LABEL01_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_3].labes[0], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME3_SECT_OF_INIFILE, LABEL02_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_3].labes[1], LABEL_LEN_MAX, szInipath);
+				str_num = GetPrivateProfileString(LABEL_NAME3_SECT_OF_INIFILE, LABEL03_KEY_OF_INIFILE, L"FAILED", mklogset[MK_LOGSET_3].labes[2], LABEL_LEN_MAX, szInipath);
 
 			}
 			//LOG04
@@ -205,7 +215,7 @@ namespace MKlog
 
 		GetLocalTime(&stTime);
 
-		ws << stTime.wHour << L":"<< stTime.wMinute << L":" << stTime.wSecond << L"." << stTime.wMilliseconds;
+		ws << stTime.wHour << L":"<< stTime.wMinute << L":" << stTime.wSecond << L"."<<setw(3)<<setfill(L'0') << stTime.wMilliseconds;
 
 		int i_double=0, i_int=0, i_bool=0;
 		for (int i = 0; i < mklogset[logID].n_item; i++) {
@@ -216,11 +226,11 @@ namespace MKlog
 				i_double++;
 				break;
 			case MK_DATA_TYPE_INT:
-				ws << *mklogset[logID].p_int[i_double];
+				ws << *mklogset[logID].p_int[i_int];
 				i_int++;
 				break;
 			case MK_DATA_TYPE_BOOL:
-				ws << *mklogset[logID].p_bool[i_double];
+				ws << *mklogset[logID].p_bool[i_bool];
 				i_bool++;
 				break;
 
