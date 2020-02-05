@@ -131,7 +131,7 @@ namespace MKlog
 		for (; logID < nlogs; logID++) if (mklogset[logID].timerID == idEvent)break;
 		if (logID >= nlogs) return;
 
-		wcout << "double[0] :" << *mklogset[logID].p_double[0] << endl;
+	//	wcout << "double[0] :" << *mklogset[logID].p_double[0] << endl;
 
 		if (mklogset[logID].status == LOG_STATUS_ACTIVE) add_record(logID);
 		else if ((mklogset[logID].status == LOG_STATUS_STOP) || (mklogset[logID].status == LOG_STATUS_ERROR)) {
