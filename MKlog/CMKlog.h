@@ -19,6 +19,14 @@ namespace MKlog
 #define EXT_OF_CSVFILE			L".csv"		//csvファイル拡張子
 #define DELIMITER_OF_FILE		L"_"		//ファイル名区切り文字
 
+#define MK_LOGSET_1				0 //LOG SET配列Index
+#define MK_LOGSET_2				1 //LOG SET配列Index
+#define MK_LOGSET_3				2 //LOG SET配列Index
+
+#define MK_DATA_TYPE_DOUBLE		0 //記録データの型　double
+#define MK_DATA_TYPE_INT		1 //記録データの型　int
+#define MK_DATA_TYPE_BOOL		2 //記録データの型　bool
+
 
 	typedef struct stMKlogSet {
 		FILE*	fp;
@@ -62,9 +70,9 @@ namespace MKlog
 		static int add_record(int logID);
 		static int set_label(int logID);
 
-		int set_double_data(double* pd, int logID, int i_item) { if((logID<LOG_RECORD_MAX)&&(i_item<LOG_ITEM_MAX)) mklogset[logID].p_double[i_item] = pd; return 0; };
-		int set_int_data(int* pi, int logID, int i_item) { if ((logID<LOG_RECORD_MAX) && (i_item<LOG_ITEM_MAX)) mklogset[logID].p_int[i_item] = pi; return 0; };
-		int set_bool_data(bool* pb, int logID, int i_item) { if ((logID<LOG_RECORD_MAX) && (i_item<LOG_ITEM_MAX)) mklogset[logID].p_bool[i_item] = pb; return 0; };
+		int set_double_data(double* pd, int logID, int i_item) { if ((logID < LOG_RECORD_MAX) && (i_item < LOG_ITEM_MAX)) mklogset[logID].p_double[i_item] = pd; mklogset[logID].data_type[i_item] = MK_DATA_TYPE_DOUBLE; return 0; };
+		int set_int_data(int* pi, int logID, int i_item) { if ((logID<LOG_RECORD_MAX) && (i_item<LOG_ITEM_MAX)) mklogset[logID].p_int[i_item] = pi; mklogset[logID].data_type[i_item] = MK_DATA_TYPE_INT;  return 0; };
+		int set_bool_data(bool* pb, int logID, int i_item) { if ((logID<LOG_RECORD_MAX) && (i_item<LOG_ITEM_MAX)) mklogset[logID].p_bool[i_item] = pb;  mklogset[logID].data_type[i_item] = MK_DATA_TYPE_BOOL; return 0; };
 
 
 		static VOID CALLBACK MKlogTimerProc(HWND hwnd, UINT msg, UINT idEvent, DWORD dwTime);
@@ -73,14 +81,6 @@ namespace MKlog
 		static std::wstring getDatetimeStr();
 	};
 
-
-#define MK_LOGSET_1				0 //LOG SET配列Index
-#define MK_LOGSET_2				1 //LOG SET配列Index
-#define MK_LOGSET_3				2 //LOG SET配列Index
-
-#define MK_DATA_TYPE_DOUBLE		0 //記録データの型　double
-#define MK_DATA_TYPE_INT		1 //記録データの型　int
-#define MK_DATA_TYPE_BOOL		2 //記録データの型　bool
 }
 
 
